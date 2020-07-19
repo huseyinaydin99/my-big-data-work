@@ -1,0 +1,26 @@
+GET localhost:9200 //localhost'a bağlan
+PUT localhost:9200/exam/product/123 //veri ekleme idli
+POST localhost:9200/exam/product/ //veri ekleme idsiz
+GET localhost:9200/exam/product/123 //ürün sorgulama 123 idli ürünü getirir
+GET localhost:9200/exam/product/123?_source=false //kaynağı getirme sadece kayıt var mı onu sorgula
+GET localhost:9200/exam/product/123?_source_include=brand,name //sadece belirli alanları getirir
+DELETE localhost:9200/exam/product/123 //123 idliyi siler
+POST localhost:9200/exam/product/124/_update //124 idli ürünü günceller
+body kısmı json:
+{
+	"doc":{
+		"color": "black"
+	}
+}
+POST localhost:9200/exam/product/_delete_by_query //sorguya göre siler rengi siyah olanları siler
+body kısmı json:
+{
+	"query":{
+		"match":{
+			"color":"black"
+		}
+	}
+}
+GET localhost:9200/exam/product/_search?q=brand:samsung //brandı samsung olanları getirir
+GET localhost:9200/_all //db deki tüm verileri getirir
+GET localhost:9200/product/_search //tüm kayıtları getirir

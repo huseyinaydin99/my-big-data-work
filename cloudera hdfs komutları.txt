@@ -1,0 +1,11 @@
+hdfs dfs -mkdir /example //hdfs içerisinde example klasörünü oluşturur
+hdfs dfs -copyFromLocal /home/cloudera/Desktop/yandex/ratings.csv /example //ratings.csv dosyasını example klasörüne kopyalar
+hdfs dfs -count /example //example klasörünün içerisinde kaç tane dosya olduğunu gösterir
+hdfs dfs -cat /example/ratings.csv //dosyanın içeriğini gösterir
+hdfs dfs -cp /example/ratings.csv /var //ratings.csv dosyasını /var klasörüne kopyalar
+hdfs dfs -rmr /example //example klasörünü siler bu komut eski bir komutmuş yenisi aşağıda
+hdfs dfs rm -r /example //example klasörünü siler
+hdfs dfs -mv /var/ratings.csv /user //ratings dosyasını /user altına taşır
+hdfs dfs -ls /var //var klasörünün içini listeler
+hdfs dfs -chmod +x /user/ratings.csv //ratings dosyasına çalıştırma izni ekler - çıkarır + üzerine ekler
+hdfs dfs -setrep 4 -R /user/ratings.csv //replication factory'i set etmemize yarıyor yani veriyi 4 farklı makinaya dağıtıyor ama biz tek makina kullandığımız için ram 4e bölünüyor. yani hız değişmiyor. replika kopya demek. bilgisayarlara dağıtılan veri.
